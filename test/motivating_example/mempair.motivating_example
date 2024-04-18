@@ -1,0 +1,7 @@
+motivating_example.c:10 motivating_example.c:27 R W 12896 21653
+motivating_example.c:13 motivating_example.c:27 R W 21894 21653
+motivating_example.c:19 motivating_example.c:19 W W 39890 39890
+motivating_example.c:19 motivating_example.c:21 W R 39890 40739
+motivating_example.c:19 motivating_example.c:26 W R 39890 24834
+motivating_example.c:20 motivating_example.c:27 R W 43920 21653
+motivating_example.c:27 motivating_example.c:27 W W 21653 21653

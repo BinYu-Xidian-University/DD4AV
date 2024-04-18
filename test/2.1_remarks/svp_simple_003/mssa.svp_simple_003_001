@@ -1,0 +1,39 @@
+Writing 'callgraph_initial.dot'...
+Writing 'callgraph_final.dot'...
+==========FUNCTION: svp_simple_003_001_main==========
+
+LDMU(MR_23V_1) 	pts{11 }
+	[[./svp_simple_003_001.c:23:17]]({i32})
+
+LDMU(MR_23V_1) 	pts{11 }
+	[[./svp_simple_003_001.c:28:17]]({i32})
+
+LDMU(MR_25V_1) 	pts{13 }
+	[[./svp_simple_003_001.c:33:17]]({i32})
+
+LDMU(MR_25V_1) 	pts{13 }
+	[[./svp_simple_003_001.c:38:17]]({i32})
+==========FUNCTION: llvm.dbg.declare==========
+==========FUNCTION: svp_simple_003_001_isr_1==========
+23V_2 = STCHI(MR_23V_1) 	pts{11 }
+	[[./svp_simple_003_001.c:44:34]]({i32})
+
+LDMU(MR_2V_1) 	pts{6 }
+	[[./svp_simple_003_001.c:45:7]]({i32})
+25V_2 = STCHI(MR_25V_1) 	pts{13 }
+	[[./svp_simple_003_001.c:46:36]]({i32})
+
+
+LDMU(MR_4V_1) 	pts{9 }
+	[[./svp_simple_003_001.c:47:14]]({i32})
+25V_4 = STCHI(MR_25V_1) 	pts{13 }
+	[[./svp_simple_003_001.c:48:36]]({i32})
+
+==========FUNCTION: svp_simple_003_001_isr_2==========
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./svp_simple_003_001.c:53:34]]({i32})
+
+==========FUNCTION: main==========
+==========FUNCTION: printf==========
+==========FUNCTION: pthread_create==========
+==========FUNCTION: pthread_join==========

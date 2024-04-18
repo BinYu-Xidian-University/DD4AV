@@ -1,0 +1,17 @@
+file brake2_3_bug_conc_cprover.c: Parsing
+Converting
+Type-checking brake2_3_bug_conc_cprover
+Generating GOTO Program
+Adding CPROVER library
+59 functions, 1474 instructions.
+Removing function pointers
+Removing unused functions
+Dropping 17 of 59 functions (42 used)
+Full inlining
+*** Starting CEGAR Loop ***
+Calculating initial set of predicates
+*** CEGAR Loop Iteration 1
+Computing Predicate Abstraction for Program
+Running BOOM
+boom --stats -t --threadbound 5 cegar_tmp_abstract.bp >cegar_tmp_boolean_program_out1 2>cegar_tmp_boolean_program_out2
+unexpected result from Boom

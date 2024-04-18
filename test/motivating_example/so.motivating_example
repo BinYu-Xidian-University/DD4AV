@@ -1,0 +1,34 @@
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /home/rxli/DD4AV/test/motivating_example/ConConfig.motivating_example
+[DEBUG]
+[DEBUG] All the Concurent insteresting line are shown as follow:
+[DEBUG]  1)	motivating_example.c:10
+[DEBUG]  2)	motivating_example.c:12
+[DEBUG]  3)	motivating_example.c:13
+[DEBUG]  4)	motivating_example.c:19
+[DEBUG]  5)	motivating_example.c:20
+[DEBUG]  6)	motivating_example.c:21
+[DEBUG]  7)	motivating_example.c:26
+[DEBUG]  8)	motivating_example.c:27
+motivating_example.c:10 R/W task_main 12896
+motivating_example.c:10 R/W task_main 12896
+motivating_example.c:10 R/W task_main 12896
+motivating_example.c:12 R/W task_main 40740
+motivating_example.c:12 R/W task_main 40740
+motivating_example.c:12 R/W task_main 40740
+motivating_example.c:12 R/W task_main 40740
+motivating_example.c:13 R/W task_main 21894
+motivating_example.c:13 R/W task_main 21894
+motivating_example.c:13 R/W task_main 21894
+motivating_example.c:13 R/W task_main 21894
+motivating_example.c:19 R/W isr1 39890
+motivating_example.c:20 R/W isr1 43920
+motivating_example.c:20 R/W isr1 43920
+motivating_example.c:20 R/W isr1 43920
+motivating_example.c:21 R/W isr1 40739
+motivating_example.c:21 R/W isr1 40739
+motivating_example.c:21 R/W isr1 40739
+motivating_example.c:26 R/W isr2 24834
+motivating_example.c:26 R/W isr2 24834
+motivating_example.c:26 R/W isr2 24834
+motivating_example.c:27 R/W isr2 21653

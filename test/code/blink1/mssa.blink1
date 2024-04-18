@@ -1,0 +1,107 @@
+Writing 'callgraph_initial.dot'...
+Writing 'callgraph_final.dot'...
+==========FUNCTION: Timer_A_isr==========
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./blink1.c:36:20]]({i32})
+
+LDMU(MR_2V_2) 	pts{6 }
+	[[./blink1.c:41:13]]({i32})
+
+LDMU(MR_2V_2) 	pts{6 }
+	[[./blink1.c:44:12]]({i32})
+
+LDMU(MR_7V_1) 	pts{8 }
+	[[./blink1.c:45:22]]({i32})
+
+LDMU(MR_15V_1) 	pts{10 }
+	[[./blink1.c:45:30]]({i32})
+9V_2 = STCHI(MR_9V_1) 	pts{12 }
+	[[./blink1.c:45:19]]({i32})
+
+
+LDMU(MR_18V_1) 	pts{14 }
+	[[./blink1.c:47:13]]({i32})
+18V_2 = STCHI(MR_18V_1) 	pts{14 }
+	[[./blink1.c:47:13]]({i32})
+
+==========FUNCTION: Timer_B_isr==========
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./blink1.c:56:20]]({i32})
+
+LDMU(MR_2V_2) 	pts{6 }
+	[[./blink1.c:60:13]]({i32})
+
+LDMU(MR_2V_2) 	pts{6 }
+	[[./blink1.c:63:13]]({i32})
+
+LDMU(MR_7V_1) 	pts{8 }
+	[[./blink1.c:64:22]]({i32})
+9V_2 = STCHI(MR_9V_1) 	pts{12 }
+	[[./blink1.c:64:20]]({i32})
+
+
+LDMU(MR_11V_1) 	pts{16 }
+	[[./blink1.c:66:13]]({i32})
+11V_2 = STCHI(MR_11V_1) 	pts{16 }
+	[[./blink1.c:66:13]]({i32})
+
+==========FUNCTION: Timer_Force_isr==========
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./blink1.c:76:20]]({i32})
+
+LDMU(MR_2V_2) 	pts{6 }
+	[[./blink1.c:77:13]]({i32})
+2V_3 = STCHI(MR_2V_2) 	pts{6 }
+	[[./blink1.c:80:20]]({i32})
+
+LDMU(MR_4V_1) 	pts{18 }
+	[[./blink1.c:81:13]]({i32})
+4V_2 = STCHI(MR_4V_1) 	pts{18 }
+	[[./blink1.c:81:13]]({i32})
+
+==========FUNCTION: main==========
+
+LDMU(MR_22V_1) 	pts{20 }
+	[[./blink1.c:87:14]]({i32})
+
+LDMU(MR_24V_1) 	pts{22 }
+	[[./blink1.c:87:22]]({i32})
+26V_2 = STCHI(MR_26V_1) 	pts{24 }
+	[[./blink1.c:87:12]]({i32})
+
+LDMU(MR_7V_1) 	pts{8 }
+	[[./blink1.c:89:15]]({i32})
+
+LDMU(MR_15V_1) 	pts{10 }
+	[[./blink1.c:89:23]]({i32})
+28V_2 = STCHI(MR_28V_1) 	pts{26 }
+	[[./blink1.c:89:13]]({i32})
+
+LDMU(MR_7V_1) 	pts{8 }
+	[[./blink1.c:91:20]]({i32})
+
+LDMU(MR_15V_1) 	pts{10 }
+	[[./blink1.c:91:26]]({i32})
+30V_2 = STCHI(MR_30V_1) 	pts{28 }
+	[[./blink1.c:91:13]]({i32})
+
+LDMU(MR_32V_1) 	pts{30 }
+	[[./blink1.c:93:13]]({i32})
+34V_2 = STCHI(MR_34V_1) 	pts{32 }
+	[[./blink1.c:93:11]]({i32})
+
+LDMU(MR_36V_1) 	pts{34 }
+	[[./blink1.c:94:13]]({i32})
+
+LDMU(MR_38V_1) 	pts{36 }
+	[[./blink1.c:94:24]]({i32})
+40V_2 = STCHI(MR_40V_1) 	pts{38 }
+	[[./blink1.c:94:11]]({i32})
+
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./blink1.c:96:16]]({i32})
+
+==========FUNCTION: llvm.dbg.declare==========
+==========FUNCTION: printf==========
+==========FUNCTION: pthread_create==========
+==========FUNCTION: pthread_join==========

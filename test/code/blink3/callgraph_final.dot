@@ -1,0 +1,31 @@
+digraph "Call Graph" {
+	label="Call Graph";
+
+	Node0xf9af80 [shape=record,shape=Mrecord,label="{CallGraphNode ID: 9 \{fun: pthread_join\}}"];
+	Node0xf9aea0 [shape=record,shape=Mrecord,label="{CallGraphNode ID: 8 \{fun: pthread_create\}}"];
+	Node0xf9adc0 [shape=record,shape=Mrecord,label="{CallGraphNode ID: 7 \{fun: printf\}}"];
+	Node0xf9ace0 [shape=record,shape=Mrecord,label="{CallGraphNode ID: 6 \{fun: llvm.dbg.declare\}}"];
+	Node0xf9ac00 [shape=record,shape=box,label="{CallGraphNode ID: 5 \{fun: main\}|{<s0>1|<s1>2|<s2>3|<s3>4|<s4>5|<s5>6|<s6>7|<s7>8|<s8>9|<s9>10|<s10>11|<s11>12|<s12>13|<s13>14|<s14>15|<s15>16|<s16>17}}"];
+	Node0xf9ac00:s0 -> Node0xf9adc0[color=black];
+	Node0xf9ac00:s1 -> Node0xf9aea0[color=black];
+	Node0xf9ac00:s2 -> Node0xf9aea0[color=black];
+	Node0xf9ac00:s3 -> Node0xf9aea0[color=black];
+	Node0xf9ac00:s4 -> Node0xf9aea0[color=black];
+	Node0xf9ac00:s5 -> Node0xf9aea0[color=black];
+	Node0xf9ac00:s6 -> Node0xf9af80[color=black];
+	Node0xf9ac00:s7 -> Node0xf9af80[color=black];
+	Node0xf9ac00:s8 -> Node0xf9af80[color=black];
+	Node0xf9ac00:s9 -> Node0xf9af80[color=black];
+	Node0xf9ac00:s10 -> Node0xf9af80[color=black];
+	Node0xf9ac00:s11 -> Node0xf9adc0[color=black];
+	Node0xf9ac00:s12 -> Node0xf9a6c0[color=blue];
+	Node0xf9ac00:s13 -> Node0xf9a880[color=blue];
+	Node0xf9ac00:s14 -> Node0xf9a960[color=blue];
+	Node0xf9ac00:s15 -> Node0xf9aa40[color=blue];
+	Node0xf9ac00:s16 -> Node0xf9ab20[color=blue];
+	Node0xf9ab20 [shape=record,shape=box,label="{CallGraphNode ID: 4 \{fun: Timer_Reset\}}"];
+	Node0xf9aa40 [shape=record,shape=box,label="{CallGraphNode ID: 3 \{fun: Timer_Force\}}"];
+	Node0xf9a960 [shape=record,shape=box,label="{CallGraphNode ID: 2 \{fun: Timer_C_isr\}}"];
+	Node0xf9a880 [shape=record,shape=box,label="{CallGraphNode ID: 1 \{fun: Timer_B_isr\}}"];
+	Node0xf9a6c0 [shape=record,shape=box,label="{CallGraphNode ID: 0 \{fun: Timer_A_isr\}}"];
+}

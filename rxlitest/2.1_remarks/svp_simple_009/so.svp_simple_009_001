@@ -1,0 +1,32 @@
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /mnt/c/Users/KrystalRay/Downloads/PERIOD-master/PERIOD-master/rxlitest/2.1_remarks/svp_simple_009/ConConfig.svp_simple_009_001
+[DEBUG]
+[DEBUG] All the Concurent insteresting line are shown as follow:
+[DEBUG]  1)	svp_simple_009_001.c:19
+[DEBUG]  2)	svp_simple_009_001.c:20
+[DEBUG]  3)	svp_simple_009_001.c:22
+[DEBUG]  4)	svp_simple_009_001.c:23
+[DEBUG]  5)	svp_simple_009_001.c:25
+[DEBUG]  6)	svp_simple_009_001.c:27
+[DEBUG]  7)	svp_simple_009_001.c:28
+[DEBUG]  8)	svp_simple_009_001.c:34
+[DEBUG]  9)	svp_simple_009_001.c:39
+[DEBUG]  10)	svp_simple_009_001.c:40
+svp_simple_009_001.c:19 R/W svp_simple_009_001_main 53842
+svp_simple_009_001.c:20 R/W svp_simple_009_001_main 7056
+svp_simple_009_001.c:22 R/W svp_simple_009_001_main 48310
+svp_simple_009_001.c:22 R/W svp_simple_009_001_main 48310
+svp_simple_009_001.c:23 R/W svp_simple_009_001_main 3401
+svp_simple_009_001.c:23 R/W svp_simple_009_001_main 3401
+svp_simple_009_001.c:25 R/W svp_simple_009_001_main 44655
+svp_simple_009_001.c:27 R/W svp_simple_009_001_main 20373
+svp_simple_009_001.c:27 R/W svp_simple_009_001_main 20373
+svp_simple_009_001.c:28 R/W svp_simple_009_001_main 41000
+svp_simple_009_001.c:28 R/W svp_simple_009_001_main 41000
+svp_simple_009_001.c:34 R/W svp_simple_009_001_isr_1 3536
+svp_simple_009_001.c:34 R/W svp_simple_009_001_isr_1 3536
+svp_simple_009_001.c:34 R/W svp_simple_009_001_isr_1 3536
+svp_simple_009_001.c:39 R/W svp_simple_009_001_isr_1 3876
+svp_simple_009_001.c:40 R/W svp_simple_009_001_isr_1 65008
+svp_simple_009_001.c:40 R/W svp_simple_009_001_isr_1 65008
+svp_simple_009_001.c:40 R/W svp_simple_009_001_isr_1 65008

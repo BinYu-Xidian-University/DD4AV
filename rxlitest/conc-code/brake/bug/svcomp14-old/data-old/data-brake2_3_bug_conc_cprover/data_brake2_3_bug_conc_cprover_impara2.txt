@@ -1,0 +1,672 @@
+Parsing brake2_3_bug_conc_cprover.c
+Converting
+Type-checking brake2_3_bug_conc_cprover
+Generating GOTO Program
+Adding CPROVER library
+Function Pointer Removal
+Partial Inlining
+Generic Property Instrumentation
+size of a node 448
+Building location map
+Starting search
+Nodes: 6771
+States: 115
+Cover checks: 
+ * ordinary 183136 / 212730
+ * force    96 / 2422
+Implication checks: 
+ * syntactic  0 / 0
+ * SMT solver 0 / 0
+Refinements: 
+ * nr  906
+Cover checks
+ solver time 0s #runs 0
+
+Force-cover checks
+ solver time 2059.72s #runs 2326
+ * clauses: total 615632386 avg 264674 max 517218
+ * vars: total 143102627 avg 61523.1 max 117548
+
+Assertion checks 1
+ solver time 0.054s #runs 1
+ * clauses: total 68983 avg 68983 max 68983
+ * vars: total 17176 avg 17176 max 17176
+
+Symex checks
+ solver time 10.822s #runs 699
+ * clauses: total 14679167 avg 21000.2 max 68983
+ * vars: total 3951492 avg 5653.06 max 17175
+
+
+Runtime: 2142.11s total, 1.368 s CLOSE 2104.27 s Force 
+
+
+Counterexample:
+
+State 7 file <built-in-additions> line 57 thread 0
+----------------------------------------------------
+  __CPROVER_rounding_mode=0 (00000000000000000000000000000000)
+
+State 8 file brake2_3_bug_conc_cprover.c line 1 thread 0
+----------------------------------------------------
+  __TRANS_thread_running={ 0, 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 10 file brake2_3_bug_conc_cprover.c line 2 thread 0
+----------------------------------------------------
+  __TRANS_thread_sync={ 0, 0, 0, 0 } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 17 file brake_acc_nodiv_ctrl_data.c line 26 thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_P={ .Gain1_Gain=30.000000f, .Distribution_Gain={ 3.100000e-1f, 2.900000e-1f, 2.100000e-1f, 1.900000e-1f }, .average_rpm_Gain=2.500000e-1f,
+    .wgrads_Gain=1.047198e-1f, .vkmh_Gain=1.800000e+0f,
+    .RT_X0=0.000000f, .RT4_X0=0.000000f,
+    .RT1_X0=0.000000f, .RT2_X0=0.000000f,
+    .RT3_X0=0.000000f, .Pedal_map_UpperSat=100.000000f,
+    .Pedal_map_LowerSat=0.000000f, .ABS_FL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_FR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 } } ({ 01000001111100000000000000000000, { 00111110100111101011100001010010, 00111110100101000111101011100001, 00111110010101110000101000111101, 00111110010000101000111101011100 }, 00111110100000000000000000000000, 00111101110101100111011101010000, 00111111111001100110011001100110, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000010110010000000000000000000, 00000000000000000000000000000000, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 } })
+
+State 19 file brake_acc_nodiv_ctrl.c line 24 thread 0
+----------------------------------------------------
+  RT9=0.000000f (00000000000000000000000000000000)
+
+State 20 file brake_acc_nodiv_ctrl.c line 25 thread 0
+----------------------------------------------------
+  RT10=0.000000f (00000000000000000000000000000000)
+
+State 21 file brake_acc_nodiv_ctrl.c line 26 thread 0
+----------------------------------------------------
+  RT11=0.000000f (00000000000000000000000000000000)
+
+State 22 file brake_acc_nodiv_ctrl.c line 27 thread 0
+----------------------------------------------------
+  RT12=0.000000f (00000000000000000000000000000000)
+
+State 51 file rtGetNaN.c line 32 function rtGetNaN thread 0
+----------------------------------------------------
+  bitsPerReal=32ul (0000000000000000000000000000000000000000000000000000000000100000)
+
+State 59 file rtGetNaN.c line 82 function rtGetNaNF thread 0
+----------------------------------------------------
+  one=1 (0000000000000001)
+
+State 61 file rtGetNaN.c line 86 function rtGetNaNF thread 0
+----------------------------------------------------
+  machByteOrder=/*enum*/0 (00000000000000000000000000000000)
+
+State 74 file rtGetNaN.c line 82 function rtGetNaNF thread 0
+----------------------------------------------------
+  one=1 (0000000000000001)
+
+State 76 file rtGetNaN.c line 86 function rtGetNaNF thread 0
+----------------------------------------------------
+  machByteOrder=/*enum*/0 (00000000000000000000000000000000)
+
+State 84 file rtGetInf.c line 32 function rtGetInf thread 0
+----------------------------------------------------
+  bitsPerReal=32ul (0000000000000000000000000000000000000000000000000000000000100000)
+
+State 90 file rtGetInf.c line 81 function rtGetInfF thread 0
+----------------------------------------------------
+  infF={ .wordL={ .wordLreal=+INFINITY } } ({ 01111111100000000000000000000000 })
+
+State 103 file rtGetInf.c line 91 function rtGetMinusInf thread 0
+----------------------------------------------------
+  bitsPerReal=32ul (0000000000000000000000000000000000000000000000000000000000100000)
+
+State 121 file brake_acc_nodiv_ctrl.c line 483 function brake_acc_nodiv_ctrl_initialize thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_P={ .Gain1_Gain=30.000000f, .Distribution_Gain={ 3.100000e-1f, 2.900000e-1f, 2.100000e-1f, 1.900000e-1f }, .average_rpm_Gain=2.500000e-1f,
+    .wgrads_Gain=1.047198e-1f, .vkmh_Gain=1.800000e+0f,
+    .RT_X0=0.000000f, .RT4_X0=0.000000f,
+    .RT1_X0=0.000000f, .RT2_X0=0.000000f,
+    .RT3_X0=0.000000f, .Pedal_map_UpperSat=100.000000f,
+    .Pedal_map_LowerSat=0.000000f, .ABS_FL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_FR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 } } ({ 01000001111100000000000000000000, { 00111110100111101011100001010010, 00111110100101000111101011100001, 00111110010101110000101000111101, 00111110010000101000111101011100 }, 00111110100000000000000000000000, 00111101110101100111011101010000, 00111111111001100110011001100110, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000010110010000000000000000000, 00000000000000000000000000000000, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 } })
+
+State 122 file brake_acc_nodiv_ctrl.c line 484 function brake_acc_nodiv_ctrl_initialize thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_P={ .Gain1_Gain=30.000000f, .Distribution_Gain={ 3.100000e-1f, 2.900000e-1f, 2.100000e-1f, 1.900000e-1f }, .average_rpm_Gain=2.500000e-1f,
+    .wgrads_Gain=1.047198e-1f, .vkmh_Gain=1.800000e+0f,
+    .RT_X0=0.000000f, .RT4_X0=0.000000f,
+    .RT1_X0=0.000000f, .RT2_X0=0.000000f,
+    .RT3_X0=0.000000f, .Pedal_map_UpperSat=100.000000f,
+    .Pedal_map_LowerSat=0.000000f, .ABS_FL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_FR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 } } ({ 01000001111100000000000000000000, { 00111110100111101011100001010010, 00111110100101000111101011100001, 00111110010101110000101000111101, 00111110010000101000111101011100 }, 00111110100000000000000000000000, 00111101110101100111011101010000, 00111111111001100110011001100110, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000010110010000000000000000000, 00000000000000000000000000000000, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 } })
+
+State 123 file brake_acc_nodiv_ctrl.c line 485 function brake_acc_nodiv_ctrl_initialize thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_P={ .Gain1_Gain=30.000000f, .Distribution_Gain={ 3.100000e-1f, 2.900000e-1f, 2.100000e-1f, 1.900000e-1f }, .average_rpm_Gain=2.500000e-1f,
+    .wgrads_Gain=1.047198e-1f, .vkmh_Gain=1.800000e+0f,
+    .RT_X0=0.000000f, .RT4_X0=0.000000f,
+    .RT1_X0=0.000000f, .RT2_X0=0.000000f,
+    .RT3_X0=0.000000f, .Pedal_map_UpperSat=100.000000f,
+    .Pedal_map_LowerSat=0.000000f, .ABS_FL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_FR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=0.000000f,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 } } ({ 01000001111100000000000000000000, { 00111110100111101011100001010010, 00111110100101000111101011100001, 00111110010101110000101000111101, 00111110010000101000111101011100 }, 00111110100000000000000000000000, 00111101110101100111011101010000, 00111111111001100110011001100110, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000010110010000000000000000000, 00000000000000000000000000000000, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 } })
+
+State 124 file brake_acc_nodiv_ctrl.c line 486 function brake_acc_nodiv_ctrl_initialize thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_P={ .Gain1_Gain=30.000000f, .Distribution_Gain={ 3.100000e-1f, 2.900000e-1f, 2.100000e-1f, 1.900000e-1f }, .average_rpm_Gain=2.500000e-1f,
+    .wgrads_Gain=1.047198e-1f, .vkmh_Gain=1.800000e+0f,
+    .RT_X0=0.000000f, .RT4_X0=0.000000f,
+    .RT1_X0=0.000000f, .RT2_X0=0.000000f,
+    .RT3_X0=0.000000f, .Pedal_map_UpperSat=100.000000f,
+    .Pedal_map_LowerSat=0.000000f, .ABS_FL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_FR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RL_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 },
+    .ABS_RR_Wheel={ .wheSpdms_Gain=5.235988e-2f, .vms_Gain=2.777778e-1f, .positive_UpperSat=+INFINITY,
+    .positive_LowerSat=0.000000f, .times_10_Gain=10.000000f,
+    .slip_abs_on_times_10_Gain=1.000000f, .Threshold_10kmh_Threshold=10.000000f,
+    .ReleaseBrake_Value=0,
+    .$pad0=0 } } ({ 01000001111100000000000000000000, { 00111110100111101011100001010010, 00111110100101000111101011100001, 00111110010101110000101000111101, 00111110010000101000111101011100 }, 00111110100000000000000000000000, 00111101110101100111011101010000, 00111111111001100110011001100110, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 01000010110010000000000000000000, 00000000000000000000000000000000, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 }, { 00111101010101100111011101010000, 00111110100011100011100011100100, 01111111100000000000000000000000, 00000000000000000000000000000000, 01000001001000000000000000000000, 00111111100000000000000000000000, 01000001001000000000000000000000, 00000000, 000000000000000000000000 } })
+
+State 131 file brake2_3_bug_conc_cprover.c line 288 function havocInputs thread 0
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_U={ .In_BrakePedal=5.421012e-20f, .In_RRRotation=-1.540744e-29f, .In_RLRotation=1.220703e+0f,
+    .In_FRRotation=5.000000e-1f, .In_FLRotation=1.718750e+0f } ({ 00011111100000000000000000000001, 10001111100111000100000000000001, 00111111100111000100000000000001, 00111111000000000000000000000000, 00111111110111000000000000000010 })
+
+State 239 file brake2_3_bug_conc_cprover.c line 89 function TRANS_atomic_sync_init_task_compute thread 4
+----------------------------------------------------
+  __TRANS_thread_sync={ 1, 0, 0, 0 } ({ 00000000000000000000000000000001, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 256 file brake2_3_bug_conc_cprover.c line 93 function TRANS_atomic_sync_init_task_RR_Wheel thread 1
+----------------------------------------------------
+  __TRANS_thread_sync={ 1, 1, 0, 0 } ({ 00000000000000000000000000000001, 00000000000000000000000000000001, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 273 file brake2_3_bug_conc_cprover.c line 97 function TRANS_atomic_sync_init_task_FL_Wheel thread 2
+----------------------------------------------------
+  __TRANS_thread_sync={ 1, 1, 1, 0 } ({ 00000000000000000000000000000001, 00000000000000000000000000000001, 00000000000000000000000000000001, 00000000000000000000000000000000 })
+
+State 279 file brake2_3_bug_conc_cprover.c line 1055 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 280 file brake2_3_bug_conc_cprover.c line 1058 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 281 file brake2_3_bug_conc_cprover.c line 1061 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 282 file brake2_3_bug_conc_cprover.c line 1064 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 283 file brake2_3_bug_conc_cprover.c line 1067 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 285 file brake2_3_bug_conc_cprover.c line 1073 function task_FR_Wheel thread 3
+----------------------------------------------------
+  RT4_Buffer0=0.000000f (00000000000000000000000000000000)
+
+State 290 file brake2_3_bug_conc_cprover.c line 101 function TRANS_atomic_sync_init_task_FR_Wheel thread 3
+----------------------------------------------------
+  __TRANS_thread_sync={ 1, 1, 1, 1 } ({ 00000000000000000000000000000001, 00000000000000000000000000000001, 00000000000000000000000000000001, 00000000000000000000000000000001 })
+
+State 297 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 4
+----------------------------------------------------
+  tmp_if_expr$1@4=TRUE (1)
+
+State 301 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 4
+----------------------------------------------------
+  tmp_if_expr$2@4=TRUE (1)
+
+State 305 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 4
+----------------------------------------------------
+  tmp_if_expr$3@4=TRUE (1)
+
+State 314 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 318 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 3
+----------------------------------------------------
+  tmp_if_expr$2@3=TRUE (1)
+
+State 322 file brake2_3_bug_conc_cprover.c line 105 function __VERIFIER_atomic_sync_threads thread 3
+----------------------------------------------------
+  tmp_if_expr$3@3=TRUE (1)
+
+State 331 file brake2_3_bug_conc_cprover.c line 13 function __VERIFIER_atomic_TRANS_task_compute_enter_thread thread 4
+----------------------------------------------------
+  tmp_if_expr$1@4=TRUE (1)
+
+State 335 file brake2_3_bug_conc_cprover.c line 13 function __VERIFIER_atomic_TRANS_task_compute_enter_thread thread 4
+----------------------------------------------------
+  tmp_if_expr$2@4=TRUE (1)
+
+State 338 file brake2_3_bug_conc_cprover.c line 14 function __VERIFIER_atomic_TRANS_task_compute_enter_thread thread 4
+----------------------------------------------------
+  __TRANS_thread_running={ 1, 0, 0, 0 } ({ 00000000000000000000000000000001, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 })
+
+State 341 file brake2_3_bug_conc_cprover.c line 15 function __VERIFIER_atomic_TRANS_task_compute_enter_thread thread 4
+----------------------------------------------------
+  tmp_if_expr$3@4=TRUE (1)
+
+State 345 file brake2_3_bug_conc_cprover.c line 15 function __VERIFIER_atomic_TRANS_task_compute_enter_thread thread 4
+----------------------------------------------------
+  tmp_if_expr$4@4=TRUE (1)
+
+State 357 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 366 file brake2_3_bug_conc_cprover.c line 76 function __VERIFIER_atomic_TRANS_task_FR_Wheel_enter_thread thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 369 file brake2_3_bug_conc_cprover.c line 77 function __VERIFIER_atomic_TRANS_task_FR_Wheel_enter_thread thread 3
+----------------------------------------------------
+  __TRANS_thread_running={ 1, 0, 0, 1 } ({ 00000000000000000000000000000001, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000001 })
+
+State 372 file brake2_3_bug_conc_cprover.c line 78 function __VERIFIER_atomic_TRANS_task_FR_Wheel_enter_thread thread 3
+----------------------------------------------------
+  tmp_if_expr$2@3=TRUE (1)
+
+State 381 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 390 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 398 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 407 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 416 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 420 file brake2_3_bug_conc_cprover.c line 1109 function task_FR_Wheel thread 3
+----------------------------------------------------
+  brake_acc_nodiv_ctrl_B_local@3={ .RT_h=0.000000f, .RT4=0.000000f, .RT1=0.000000f, .RT2=0.000000f,
+    .RT3=0.000000f, .RT14=0.000000f, .RT9=0.000000f,
+    .RT10=0.000000f, .RT11=0.000000f, .RT12=0.000000f,
+    .vkmh=0.000000f, .Distribution={ 0.000000f, 0.000000f, 0.000000f, 0.000000f }, .Gain1=0.000000f,
+    .ABS_FL_Wheel={ .Threshold_10kmh=0.000000f }, .ABS_FR_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RL_Wheel={ .Threshold_10kmh=0.000000f },
+    .ABS_RR_Wheel={ .Threshold_10kmh=0.000000f } } ({ 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, { 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000, 00000000000000000000000000000000 }, 00000000000000000000000000000000, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 }, { 00000000000000000000000000000000 } })
+
+State 424 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 433 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 442 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 465 file cbmc-math.c line 139 function floor thread 3
+----------------------------------------------------
+  ew_u@3={ .value=1.000000 } (0011111111110000000000000000000000000000000000000000000000000000)
+
+State 466 file cbmc-math.c line 139 function floor thread 3
+----------------------------------------------------
+  i0@3=1072693248 (00111111111100000000000000000000)
+
+State 467 file cbmc-math.c line 139 function floor thread 3
+----------------------------------------------------
+  i1@3=0 (00000000000000000000000000000000)
+
+State 470 file cbmc-math.c line 140 function floor thread 3
+----------------------------------------------------
+  j0@3=0 (00000000000000000000000000000000)
+
+State 473 file cbmc-math.c line 149 function floor thread 3
+----------------------------------------------------
+  i@3=1048575u (00000000000011111111111111111111)
+
+State 476 file brake_acc_nodiv_ctrl.c line 198 function rt_roundd_snf thread 3
+----------------------------------------------------
+  return_value_floor$1@3=1.000000 (0011111111110000000000000000000000000000000000000000000000000000)
+
+State 477 file brake_acc_nodiv_ctrl.c line 198 function rt_roundd_snf thread 3
+----------------------------------------------------
+  y@3=1.000000f (00111111100000000000000000000000)
+
+State 486 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 495 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 504 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 512 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 521 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 530 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 538 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 547 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 556 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 564 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 573 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 582 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 586 file brake2_3_bug_conc_cprover.c line 1162 function task_FR_Wheel thread 3
+----------------------------------------------------
+  rtb_vms@3=0.000000f (00000000000000000000000000000000)
+
+State 590 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 599 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 608 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 612 file brake2_3_bug_conc_cprover.c line 1173 function task_FR_Wheel thread 3
+----------------------------------------------------
+  u@3=-5.235988e-2f (10111101010101100111011101010000)
+
+State 616 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 625 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 634 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 639 file brake2_3_bug_conc_cprover.c line 1183 function task_FR_Wheel thread 3
+----------------------------------------------------
+  positive_UpperSat_local@3=+INFINITY (01111111100000000000000000000000)
+
+State 643 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 652 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 662 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 671 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 676 file brake2_3_bug_conc_cprover.c line 1202 function task_FR_Wheel thread 3
+----------------------------------------------------
+  positive_LowerSat_local@3=0.000000f (00000000000000000000000000000000)
+
+State 680 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 689 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 699 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 708 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 716 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 725 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 734 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 744 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 753 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 761 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 770 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 779 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 784 file brake2_3_bug_conc_cprover.c line 1239 function task_FR_Wheel thread 3
+----------------------------------------------------
+  Threshold_10kmh_Threshold_local@3=10.000000f (01000001001000000000000000000000)
+
+State 788 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 797 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 807 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 816 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 824 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 833 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 842 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 851 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 859 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 868 file brake2_3_bug_conc_cprover.c line 68 function __VERIFIER_atomic_TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 876 file brake2_3_bug_conc_cprover.c line 376 function task_compute thread 4
+----------------------------------------------------
+  vkmh@4=0.000000f (00000000000000000000000000000000)
+
+State 882 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 886 file brake2_3_bug_conc_cprover.c line 1309 function task_FR_Wheel thread 3
+----------------------------------------------------
+  RT11=1.000000f (00111111100000000000000000000000)
+
+State 890 file brake2_3_bug_conc_cprover.c line 72 function TRANS_atomic_assume_task_FR_Wheel thread 3
+----------------------------------------------------
+  tmp_if_expr$1@3=TRUE (1)
+
+State 896 file brake2_3_bug_conc_cprover.c line 382 function task_compute thread 4
+----------------------------------------------------
+  tmp@4=4.712389e-2f (00111101010000010000010011111011)
+
+Violated property:
+  file brake2_3_bug_conc_cprover.c line 386 function task_compute
+  assertion fabs(vkmh-tmp)<=0.001
+  FALSE
+
+VERIFICATION FAILED

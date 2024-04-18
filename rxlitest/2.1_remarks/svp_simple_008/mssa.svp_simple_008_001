@@ -1,0 +1,26 @@
+Writing 'callgraph_initial.dot'...
+Writing 'callgraph_final.dot'...
+==========FUNCTION: svp_simple_008_001_main==========
+2V_2 = STCHI(MR_2V_1) 	pts{6 }
+	[[./svp_simple_008_001.c:22:42]]({i32})
+
+2V_3 = STCHI(MR_2V_2) 	pts{6 }
+	[[./svp_simple_008_001.c:24:38]]({i32})
+
+==========FUNCTION: llvm.dbg.declare==========
+==========FUNCTION: svp_simple_008_001_func_1==========
+
+LDMU(MR_2V_1) 	pts{6 }
+	[[./svp_simple_008_001.c:35:13]]({i32})
+
+LDMU(MR_2V_1) 	pts{6 }
+	[[./svp_simple_008_001.c:39:13]]({i32})
+==========FUNCTION: __assert_fail==========
+==========FUNCTION: svp_simple_008_001_isr_1==========
+2V_3 = STCHI(MR_2V_2) 	pts{6 }
+	[[./svp_simple_008_001.c:43:66]]({i32})
+
+==========FUNCTION: main==========
+==========FUNCTION: printf==========
+==========FUNCTION: pthread_create==========
+==========FUNCTION: pthread_join==========
