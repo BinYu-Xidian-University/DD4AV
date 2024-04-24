@@ -5,48 +5,27 @@
 #include <pthread.h>
 #include <assert.h>
 
-volatile int x=1,TRIGGER=99,flag=0;
+volatile int x=0,flag=0;
 void task_main() {
-    int y = x;
-    for (int i=0; i<100; i++) {
-        if (i == TRIGGER){
-            y = x + i;
-        }
+    flag = 1;
+    if(x == 0) {
+        flag = 2;
     }
-    x = 2;
-    if(flag == 2){
-        x = 3;
-    }
-    x = 4;
 }
 
 void isr1() {
-    int y = x;
-    for (int i=0; i<100; i++) {
-        if (i == TRIGGER){
-            y = x + i;
-        }
+    if (flag == 2) {
+        flag = 4;
     }
-    x = 2;
-    if(flag == 2){
-        x = 3;
-    }
-    x = 4;
 }
 
 void isr2() {
-    int y = x;
-    for (int i=0; i<100; i++) {
-        if (i == TRIGGER){
-            y = x + i;
-        }
+    if (flag == 88) {
+        x = 11;
+        flag = 6;
     }
-    x = 2;
-    if(flag == 2){
-        x = 3;
-    }
-    x = 4;
 }
+
 
 int main(int argc, char **argv) {
 

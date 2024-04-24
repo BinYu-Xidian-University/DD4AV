@@ -1,9 +1,0 @@
-src/nspr-4.7.3
-src/js
-src/*.tar.gz
-*.o.bc
-*.o
-.test.o
-.test.o.bc
-bin/
-out_*

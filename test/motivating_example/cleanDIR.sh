@@ -20,3 +20,4 @@ rm -rf ./dbds.*
 rm -rf ./*.o
 rm -rf ./*.npy
 rm -rf ./*.npz
+rm -rf ./static_analysis.*

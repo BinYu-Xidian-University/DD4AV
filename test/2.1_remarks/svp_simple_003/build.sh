@@ -33,6 +33,6 @@ clang -g -O0 -emit-llvm -c ./svp_simple_003_001.c -o svp_simple_003_001.bc
 $ROOT_DIR/tool/staticAnalysis/staticAnalysis.sh svp_simple_003_001
 
 # complie the instrumented program with ASAN
-export Con_PATH=$ROOT_DIR/test/2.1_remarks/svp_simple_004/ConConfig.svp_simple_003_001
+export Con_PATH=$ROOT_DIR/test/2.1_remarks/svp_simple_003/ConConfig.svp_simple_003_001
 $ROOT_DIR/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast -g -O0 -fsanitize=address -c ./svp_simple_003_001.c -o svp_simple_003_001.o
 clang++ ./svp_simple_003_001.o $ROOT_DIR/tool/staticAnalysis/DBDS-INSTRU/DBDSFunction.o -g -o svp_simple_003_001 -lpthread -fsanitize=address -ldl

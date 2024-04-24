@@ -45,7 +45,7 @@ output_num = [0]  # the number of different outputs
 total_errors_interleavings = [0]  # the number of errors
 total_timeouts_interleavings = [0]  # the number of timeouts
 recordERR = 1
-check_STDOUT = 2  # Set 2 if you want to record diff result
+check_STDOUT = 1  # Set 2 if you want to record diff result
 check_STDERR = 1  # Set 1 if you want to record err result
 kpMaxNumArray = [0] * SHARE_THREAD_NUM
 parentArray = [0] * SHARE_THREAD_NUM
@@ -54,7 +54,7 @@ parentArrayCopy = [0] * SHARE_THREAD_NUM
 
 def setup_share_memroy():
     IPC_KEY, MAP_SIZE, IPC_CREAT, IPC_EXCL = 1111, sizeof(c_ulonglong) + sizeof(c_uint) * 3 + sizeof(c_uint16) * (
-                SHARE_THREAD_NUM + 4 * SHARE_ARRAY_SIZE), 512, 1024 #修改到4*（原本3）
+            SHARE_THREAD_NUM + 4 * SHARE_ARRAY_SIZE), 512, 1024  # 修改到4*（原本3）
     shmget = cdll.LoadLibrary("libc.so.6").shmget
     shmat = cdll.LoadLibrary("libc.so.6").shmat
     shmat.restype = c_void_p
@@ -81,17 +81,18 @@ def get_info_from_share_memory(P=None, A=None, B=None, T=None, kpNumArray=None, 
                 sizeof(c_uint16) * (SHARE_ARRAY_SIZE))
     if kpLocArray != None:
         memmove(byref(kpLocArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint) * 3 + sizeof(c_uint16) * (
-                    SHARE_THREAD_NUM + SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
+                SHARE_THREAD_NUM + SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
     if kpOrderArray != None:
         memmove(byref(kpOrderArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint) * 3 + sizeof(c_uint16) * (
-                    SHARE_THREAD_NUM + 2 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
+                SHARE_THREAD_NUM + 2 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
     if kpDArray != None:
         memmove(byref(kpDArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint) * 3 + sizeof(c_uint16) * (
-                    SHARE_THREAD_NUM + 3 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE) 
-    #kl add
+                SHARE_THREAD_NUM + 3 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
+        # kl add
     if kpTimeArray != None:
         memmove(byref(kpTimeArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint) * 3 + sizeof(c_uint16) * (
-                    SHARE_THREAD_NUM + 4 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE) 
+                SHARE_THREAD_NUM + 4 * SHARE_ARRAY_SIZE), sizeof(c_uint16) * SHARE_ARRAY_SIZE)
+
 
 def memmove_pattern_list(PatternList):
     tmp = []
@@ -218,8 +219,8 @@ def compare_period(inter, p):
 
     return ret
 
-          
-def get_info_from_staticanalysis(filename):                              #kladd
+
+def get_info_from_staticanalysis(filename):  # kladd
     result = []
     with open(filename, 'r') as file:
         for line in file:
@@ -232,28 +233,29 @@ def get_info_from_staticanalysis(filename):                              #kladd
                 print(f"Ignoring line due to value error: {line.strip()}")
     return result
 
-def get_location_info(kpLocArray):                                         #kladd
+
+def get_location_info(kpLocArray):  # kladd
     cnt = 0
     Loc_info_list = []
     # print("Loc:")
-    for i in kpLocArray:
-        cnt+= 1
-        if i != 0:
-            Loc_info_list.append([i//100,i%100])
-            # print(i)
+    for i in range(len(kpLocArray)):
+        cnt += 1
+        if kpLocArray[i] != 0:
+            Loc_info_list.append([kpTimeArray[i], kpLocArray[i]])
+            # print(kpTimeArray[i],kpLocArray[i])
 
     return Loc_info_list
 
 
-def merge_info_StaticDynamic(SA_Info, DD_Info):             #kladd
-    
+def merge_info_StaticDynamic(SA_Info, DD_Info):  # kladd
+
     # 结果列表
     # print("SA")
     # for i in SA_Info:
     #     print(i)
     # print("DD")
     # for i in DD_Info:
-    #     print(i) 
+    #     print(i)
     result = []
     # 遍历列表1
     for item1 in DD_Info:
@@ -278,14 +280,16 @@ def merge_info_StaticDynamic(SA_Info, DD_Info):             #kladd
             result.append(item1)
     return result
 
+
 def generateTriplelet(list):
     triplelist = []
-    for i in range(len(list)-2):
-        for j in range(i+1,len(list)-1):
-            for k in range(j+1,len(list)):
-                triplelist.append([list[i],list[j],list[k]])
+    for i in range(len(list) - 2):
+        for j in range(i + 1, len(list) - 1):
+            for k in range(j + 1, len(list)):
+                triplelist.append([list[i], list[j], list[k]])
     return triplelist
-    
+
+
 def match_patterns(list):
     patterns = [
         ['R', 'W', 'R'],
@@ -293,7 +297,8 @@ def match_patterns(list):
         ['R', 'W', 'W'],
         ['W', 'R', 'W']
     ]
-    return list in  patterns
+    return list in patterns
+
 
 def D4AV(ComSet):
     AVSet = set()
@@ -303,16 +308,16 @@ def D4AV(ComSet):
     indexedComSet.sort(key=lambda x: (x[1], x[0]))  # x[1] 是时间戳，x[0] 是原始索引
     # for i in indexedComSet:
     #     print(i)
-    Triplelist =[]
+    Triplelist = []
     # AVSet = []
-    for index, timestamp , LineNum , ad , op , func in indexedComSet:
+    for index, timestamp, LineNum, ad, op, func in indexedComSet:
         if ad not in Ato:
             Ato[ad] = []
-        Ato[ad].append([LineNum,op,func,index])    #timestamp,ad,
+        Ato[ad].append([LineNum, op, func, index])  # timestamp,ad,
     for each in Ato:
         # print(len(Ato[each]))   #打印某个地址的操作次数 >=3可能发生AV
         # print(Ato[each])
-        if len(Ato[each])>=3:
+        if len(Ato[each]) >= 3:
             Triplelist = generateTriplelet(Ato[each])
             # Triplelist = []
             # print("This variable {} has these possible AVs.".format(Ato[each]))
@@ -321,18 +326,20 @@ def D4AV(ComSet):
 
         # else:
         #     print("This variable {} has not any possible AV.".format(Ato[each]))
-        
-        for each in Triplelist:
-            op1,op2,op3 = each[0][1],each[1][1],each[2][1]
-            # print(op1,op2,op3)
-            if( match_patterns([op1,op2,op3]) and each[0][2]==each[2][2] and each[0][2]!=each[1][2] and each[0][0]!=each[2][0]): #
-                # print(op1,op2,op3)
-                AVSet.add(((each[0][1],each[0][0]),(each[1][1],each[1][0]),(each[2][1],each[2][0])))
-    # for each in AVSet:
-        # print(each)
 
-    #     rltsAVSet.add(each)       
+        for each in Triplelist:
+            op1, op2, op3 = each[0][1], each[1][1], each[2][1]
+            # print(op1,op2,op3)
+            if (match_patterns([op1, op2, op3]) and each[0][2] == each[2][2] and each[0][2] != each[1][2] and each[0][
+                0] != each[2][0]):  #
+                # print(op1,op2,op3)
+                AVSet.add(((each[0][1], each[0][0]), (each[1][1], each[1][0]), (each[2][1], each[2][0])))
+    # for each in AVSet:
+    #     print(each)
+
+    #     rltsAVSet.add(each)
     return AVSet
+
 
 # for example : [23, 20, 13, 'W', 'svp_simple_001_001_main']
 # timestamp:23 loc:20 address:13 op:W function:svp_simple_001_001_main
@@ -368,7 +375,6 @@ except getopt.GetoptError as err:
 print("opts:", opts)
 print("args:", args)
 
-
 # load static_analysis.***    KeLei add
 exename = args[0].replace("./", "")
 if 'LD_LIBRARY_PATH=' in exename and '' in exename:
@@ -392,7 +398,6 @@ if os.path.exists(Static_Analysis_FileName):
         print(item)
 else:
     print(f"Static analysis file {Static_Analysis_FileName} does not exist.")
-
 
 for opt, arg in opts:
     if opt in ("-h", "--help"):
@@ -540,7 +545,7 @@ process = subprocess.Popen(DryRun_Command, close_fds=True, stdout=subprocess.PIP
 startdryrun = time.time()
 dryrunstdout, dryrunerrdata = process.communicate(timeout=subprocessTimeout)
 enddryrun = time.time()
-print("DRYTIME:",enddryrun-startdryrun)
+print("DRYTIME:", enddryrun - startdryrun)
 dryrun_context_strings = dryrunerrdata.decode("utf-8")
 print(dryrunerrdata)
 if (process.returncode != 0 and process.returncode != 1 and process.returncode != 6 and process.returncode != -11):
@@ -573,7 +578,7 @@ kpLocArray = (c_uint16 * SHARE_ARRAY_SIZE)(0)
 kpOrderArray = (c_uint16 * SHARE_ARRAY_SIZE)(0)
 kpDArray = (c_uint16 * SHARE_ARRAY_SIZE)(0)
 kpTimeArray = (c_uint16 * SHARE_ARRAY_SIZE)(0)
-#kl add
+# kl add
 get_info_from_share_memory(P, A, B, T, kpNumArray, None, None, None)
 
 # cnt = 0
@@ -694,14 +699,14 @@ while returnNormal < 3:
 
     # get more info from share memory
     get_info_from_share_memory(P, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray, kpDArray)
-    
+
     print("KPDAARRAY:")
     # print(kpDArray)
     for i in kpDArray:
-        if i!=0:
+        if i != 0:
             print(i)
     for i in kpTimeArray:
-        if i!=0:
+        if i != 0:
             print(i)
     Loc_info_list = get_location_info(kpLocArray)
     # for i in Loc_info_list:
@@ -784,8 +789,14 @@ directInterList = []  # [inter,useful_kp_num_list, useful_kp_index_list] use for
 directInterList_save = []
 CurdirectInter = []
 printSecondFlag = 0  # used to display the second reading
+# kl
 GlobalAVSet = set()
-DynamicExecutionTime = 0 #kl
+DynamicExecutionTime = 0
+# According to PERIOD evaluation
+first_buggy_schedule = -1
+find_buggy_schedule = False
+total_schedule = 0
+total_buggy_schedule = 0
 
 if LoadMemInfoFile == 0 or varNumConsidered > len(memGroupList) or len(
         memGroupList) < 3 or M < 8:  # len(memPairList) < 3 or memPairConsidered > len(memPairList)
@@ -879,7 +890,7 @@ for iterPeriod in range(2, period_limit + 1):
                 print("\033[4;36mExploration of these KP:\033[0m", CurdirectInter[2])
                 try:
                     scheduler = SBPSched(N + zero_num(useful_kp_num_list, [0] * SHARE_THREAD_NUM, N),
-                                           useful_kp_num_list, iterPeriod)
+                                         useful_kp_num_list, iterPeriod)
                 except:
                     print("There is no schedule to satisfy under the constraint:", useful_kp_num_list, ", ", iterPeriod)
                     scheduler = None
@@ -920,11 +931,9 @@ for iterPeriod in range(2, period_limit + 1):
                 if not prefix == []:
                     # if is_redundant_with_prefix(inter,
                     #                             prefix):  # we can remove this due to "Mengda Add fix_prefix=True"
-                    # if is_redundant_with_prefix(inter,
-                    #                             prefix):  # we can remove this due to "Mengda Add fix_prefix=True"
                     #     rounds = rounds - 1
                     #     continue
-                    print("\033[4;36mtest", str(format(rounds, "0>4")) + " for no prefix " + ":\033[0m ",
+                    print("\033[4;36mtest", str(format(rounds, "0>4")) + " for no prefix " + str(prefix) + ":\033[0m ",
                           end="")
                 else:
                     print("\033[4;36mtest", str(format(rounds, "0>4")) + ":\033[0m ", end="")
@@ -975,9 +984,9 @@ for iterPeriod in range(2, period_limit + 1):
 
                 memmove_pattern_list(pattern)
 
-# here starts the subprocess
+                # here starts the subprocess
                 substartTime = time.time()
-                
+
                 # create subprocess according to the value of check_STDOUT and check_STDERR
                 process = create_DBDS_subprocess(check_STDOUT, check_STDERR)
 
@@ -987,11 +996,12 @@ for iterPeriod in range(2, period_limit + 1):
                         stdoutdata, stderrdata = process.communicate(timeout=subprocessTimeout)
                     else:
                         process.communicate(timeout=subprocessTimeout)
-                    
+
                     subEndTime = time.time()
                     DynamicExecutionTime = DynamicExecutionTime + subEndTime - substartTime
                     # get info from share memory
-                    get_info_from_share_memory(None, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray, kpDArray, kpTimeArray)
+                    get_info_from_share_memory(None, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray,
+                                               kpDArray, kpTimeArray)
 
                     # for i in kpDArray:
                     #     if i!=0:
@@ -1005,20 +1015,26 @@ for iterPeriod in range(2, period_limit + 1):
                     # for i in Loc_info_list:
                     #     print(i)
 
-                    rlts_info = merge_info_StaticDynamic(static_info,Loc_info_list)
+                    rlts_info = merge_info_StaticDynamic(static_info, Loc_info_list)
                     # for i in rlts_info:
                     #     print(i)
-                    for i in D4AV(rlts_info):
-                        curlen = len(GlobalAVSet)
-                        GlobalAVSet.add(i)
-                        if len(GlobalAVSet)>curlen:
-                            SumTime += subEndTime - substartTime
-          
+                    Subrlts = D4AV(rlts_info)
+                    if len(Subrlts):
+                        total_buggy_schedule += 1
+                        if (find_buggy_schedule == False):
+                            find_buggy_schedule = True
+                            first_buggy_schedule = rounds
+                        for i in Subrlts:
+                            curlen = len(GlobalAVSet)
+                            GlobalAVSet.add(i)
+                            if len(GlobalAVSet) > curlen:
+                                SumTime += subEndTime - substartTime
+
                     # update NMKPNUMA and rerun
                     check_and_update_kpNumMaxArray(kpNumArray, zero_in_KP)
 
-#here ends the subprocess
-                    
+                    # here ends the subprocess
+
                     # The array for storing KP is too small. Reset the array size and perform the test again
                     while A.value > N or B.value > M:
 
@@ -1033,8 +1049,8 @@ for iterPeriod in range(2, period_limit + 1):
                             stdoutdata, stderrdata = process.communicate(timeout=subprocessTimeout)
                         else:
                             process.communicate(timeout=subprocessTimeout)
-                        get_info_from_share_memory(None, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray, kpDArray, kpTimeArray)
-                        
+                        get_info_from_share_memory(None, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray,
+                                                   kpDArray, kpTimeArray)
 
                     parentArrayCopy = parentArray.copy()
                     coverFlag = 0
@@ -1098,6 +1114,7 @@ for iterPeriod in range(2, period_limit + 1):
                     useful_kp_num_list = CurdirectInter[0]
                     print("\033[4;36mExploration of these KP:\033[0m", CurdirectInter[2])
                     try:
+                        # scheduler = SBPSched(N, useful_kp_num_list, iterPeriod, prefix)
                         scheduler = SBPSched(N, useful_kp_num_list, iterPeriod)
                     except:
                         print("There is no schedule to satisfy under the constraint in stage 1:", MList, ", ",
@@ -1132,7 +1149,6 @@ for iterPeriod in range(2, period_limit + 1):
                     tmpMList.append(tempL[4][i])
                     parentArray[i] = tempL[4][i]
                 try:
-                    # scheduler = SBPSched(tempL[2], tmpMList, iterPeriod, prefix)  # Mengda Add
                     scheduler = SBPSched(tempL[2], tmpMList, iterPeriod)  # Mengda Add
                 except:
                     print("There is no schedule to satisfy under the constraint in stage 2:", MList, ", ", iterPeriod)
@@ -1159,14 +1175,21 @@ print(len(rlts), 'results found:')
 for each in rlts:
     print("\t", each)
 print('-' * 50)
+print('  ')
 for i in GlobalAVSet:
     print(i)
-print('\tLast New Find\t\tTotal')
-print('Round\t{0}\t\t\t{1}'.format(lastRound, rounds))
-print('Time\t' + formateTime(lastTime - startTime), end="")
-print('\t\t' + formateTime(time.time() - startTime))
-print('DynamicExecutionTime\t' + formateTime(DynamicExecutionTime), end="")
-print('SumTime\t' + formateTime(SumTime), end="")
+# print('\tLast New Find\t\tTotal')
+# print('Round\t{0}\t\t\t{1}'.format(lastRound, rounds))
+print('Total Round:', (rounds))
+print(
+    'First_buggy_round:{0}\tTotal_buggy_rounds:{1}\tTotal_rounds:{2}'.format(first_buggy_schedule, total_buggy_schedule,
+                                                                             rounds))
+print('bugDepth:', bugDepth)
+# print('Time\t' + formateTime(lastTime - startTime), end="")
+# print('\t\t' + formateTime(time.time() - startTime))
+print('TotalTime\t\t' + formateTime(time.time() - startTime))
+print('DynamicExecTime\t\t' + formateTime(DynamicExecutionTime))
+print('AtomicityViolationTime\t' + formateTime(SumTime))
 print('\t\t')
 print("\033[0m")
 exit()

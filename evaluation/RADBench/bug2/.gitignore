@@ -1,9 +1,0 @@
-src/nspr-4.6.7
-src/js
-src/*.tar.gz
-*.o.bc
-*.o
-.test-ctxt.o
-.test-ctxt.o.bc
-bin/
-out_*

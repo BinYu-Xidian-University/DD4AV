@@ -246,8 +246,7 @@ def get_location_info(kpLocArray):                                         #klad
 
 
 def merge_info_StaticDynamic(SA_Info, DD_Info):             #kladd
-    
-    # 结果列表
+
     # print("SA")
     # for i in SA_Info:
     #     print(i)
@@ -255,25 +254,16 @@ def merge_info_StaticDynamic(SA_Info, DD_Info):             #kladd
     # for i in DD_Info:
     #     print(i) 
     result = []
-    # 遍历列表1
     for item1 in DD_Info:
-        # 用于标记是否找到匹配项
         found = False
-        # 列表1的第二个元素
         item1_val = item1[1]
-        # 遍历列表2
         for item2 in SA_Info:
-            # 列表2的第三个元素
             item2_val = item2[2]
-            # 如果匹配
             if item1_val == item2_val:
-                # 合并列表1的项和列表2的项（除去列表2的第三个元素）
                 merged_item = item1 + item2[:2] + item2[3:]
                 result.append(merged_item)
                 found = True
                 break
-        # 如果没有在列表2中找到匹配项，可以选择性地决定如何处理列表1的元素
-        # 这里我们选择保留原样
         if not found:
             result.append(item1)
     return result
@@ -293,14 +283,14 @@ def match_patterns(list):
         ['R', 'W', 'W'],
         ['W', 'R', 'W']
     ]
-    return list in  patterns
+    return list in patterns
 
 def D4AV(ComSet):
     AVSet = set()
     Ato = {}
     rltsAVSet = set()
     indexedComSet = [(index,) + tuple(com) for index, com in enumerate(ComSet)]
-    indexedComSet.sort(key=lambda x: (x[1], x[0]))  # x[1] 是时间戳，x[0] 是原始索引
+    indexedComSet.sort(key=lambda x: (x[1], x[0]))
     # for i in indexedComSet:
     #     print(i)
     Triplelist =[]
@@ -310,7 +300,7 @@ def D4AV(ComSet):
             Ato[ad] = []
         Ato[ad].append([LineNum,op,func,index])    #timestamp,ad,
     for each in Ato:
-        # print(len(Ato[each]))   #打印某个地址的操作次数 >=3可能发生AV
+        # print(len(Ato[each]))
         # print(Ato[each])
         if len(Ato[each])>=3:
             Triplelist = generateTriplelet(Ato[each])
@@ -328,8 +318,8 @@ def D4AV(ComSet):
             if( match_patterns([op1,op2,op3]) and each[0][2]==each[2][2] and each[0][2]!=each[1][2] and each[0][0]!=each[2][0]): #
                 # print(op1,op2,op3)
                 AVSet.add(((each[0][1],each[0][0]),(each[1][1],each[1][0]),(each[2][1],each[2][0])))
-    for each in AVSet:
-        print(each)
+    # for each in AVSet:
+    #     print(each)
 
     #     rltsAVSet.add(each)       
     return AVSet
@@ -369,7 +359,7 @@ print("opts:", opts)
 print("args:", args)
 
 
-# load static_analysis.***    KeLei add
+# load static_analysis.***
 exename = args[0].replace("./", "")
 if 'LD_LIBRARY_PATH=' in exename and '' in exename:
     exename = exename[exename.rfind('/') + 1:]
@@ -380,7 +370,7 @@ else:
     Static_Analysis_FileName = "static_analysis." + exename
 
 if os.path.exists(Static_Analysis_FileName):
-    print(f"Static analysis file {Static_Analysis_FileName} exists.")
+    # print(f"Static analysis file {Static_Analysis_FileName} exists.")
     static_info = get_info_from_staticanalysis(Static_Analysis_FileName)
     for item in static_info:
         parts = item[2].split(':')
@@ -388,8 +378,8 @@ if os.path.exists(Static_Analysis_FileName):
             number = parts[1]
             if number.isdigit():
                 item[2] = int(number)
-    for item in static_info:
-        print(item)
+    # for item in static_info:
+    #     print(item)
 else:
     print(f"Static analysis file {Static_Analysis_FileName} does not exist.")
 
@@ -455,7 +445,7 @@ for opt, arg in opts:
     elif opt in ("-d", "--bugDepth"):
         if arg.isdigit():
             bugDepth = int(arg)
-            print("bugDepth:", bugDepth)
+            # print("bugDepth:", bugDepth)
             period_limit = bugDepth + 1
         else:
             print("bugDepth is not a digit.")
@@ -540,9 +530,9 @@ process = subprocess.Popen(DryRun_Command, close_fds=True, stdout=subprocess.PIP
 startdryrun = time.time()
 dryrunstdout, dryrunerrdata = process.communicate(timeout=subprocessTimeout)
 enddryrun = time.time()
-print("DRYTIME:",enddryrun-startdryrun)
+# print("DRYTIME:",enddryrun-startdryrun)
 dryrun_context_strings = dryrunerrdata.decode("utf-8")
-print(dryrunerrdata)
+# print(dryrunerrdata)
 if (process.returncode != 0 and process.returncode != 1 and process.returncode != 6 and process.returncode != -11):
     print("\033[31m", dryrun_context_strings, "\033[0m")
     print("Aborted")
@@ -614,7 +604,7 @@ if TaskReproduce == 1:
         with open(reproduceFile, "rb") as f:
             first_line_b = f.readline()  # take first line
             first_line = str(first_line_b, encoding="utf8")
-            pattern_list = literal_eval(first_line)  # 通过 literal_eval 这个函数，将str类型的列表转换成类型为list的真正的列表类型
+            pattern_list = literal_eval(first_line)
 
             threadNum = len(pattern_list)
             KPNum = len(pattern_list[0])
@@ -688,21 +678,22 @@ while returnNormal < 3:
     memmove(ADDR + sizeof(c_ulonglong) + sizeof(c_uint) * 2, byref(c_uint(N - 1)), sizeof(
         c_uint))  # tell the program how many periods we used. The program can yield those unrealted thread to the last period
     # create subprocess
-    process = subprocess.Popen(PRE_DBDS_Command, close_fds=True)
+    process = subprocess.Popen(PRE_DBDS_Command,stdout=subprocess.PIPE, stderr=subprocess.PIPE,close_fds=True)
     # print subprocess stdout and stderr
     process.communicate()
+
 
     # get more info from share memory
     get_info_from_share_memory(P, A, B, T, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray, kpDArray)
     
-    print("KPDAARRAY:")
+    # print("KPDAARRAY:")
     # print(kpDArray)
-    for i in kpDArray:
-        if i!=0:
-            print(i)
-    for i in kpTimeArray:
-        if i!=0:
-            print(i)
+    # for i in kpDArray:
+    #     if i!=0:
+    #         print(i)
+    # for i in kpTimeArray:
+    #     if i!=0:
+    #         print(i)
     Loc_info_list = get_location_info(kpLocArray)
     # for i in Loc_info_list:
     #     print(i)
@@ -757,9 +748,9 @@ print("\n--------------------------------------")
 print("Runtime:", Period)
 default_coverage_hashID = calculate_coverage_hashID(kpLocArray, M * (N + zero_in_KP), kpNumArray, N, SHARE_ARRAY_SIZE)
 print_Info_from_shm(N, M, TupleFirst, kpNumArray, kpYieldArray, kpLocArray, kpOrderArray, [], default_coverage_hashID,
-                    zero_in_KP, True)
+                    zero_in_KP, False)
 print("--------------------------------------")
-print("Enter 'debug' to view the debug information")
+# print("Enter 'debug' to view the debug information")
 if skipEnter == 0:
     input_from_user = input("Press Enter to continue...\n")
     if input_from_user == "debug" or input_from_user == "DEBUG" or input_from_user == "Debug":
@@ -1160,26 +1151,26 @@ for iterPeriod in range(2, period_limit + 1):
 print("\033[4;36mEnd Testing!\n\033[0m")
 
 print("\033[1;35m")
-print('Total Error Interleavings:', total_errors_interleavings[0])
-print('Total Timeouts Interleavings:', total_timeouts_interleavings[0])
-print(len(statusL), 'status found:')
-print("\t", statusL)
-print(len(rlts), 'results found:')
-for each in rlts:
-    print("\t", each)
+# print('Total Error Interleavings:', total_errors_interleavings[0])
+# print('Total Timeouts Interleavings:', total_timeouts_interleavings[0])
+# print(len(statusL), 'status found:')
+# print("\t", statusL)
+# print(len(rlts), 'results found:')
+# for each in rlts:
+#     print("\t", each)
 print('-' * 50)
-print('  ')
+# print('  ')
 for i in GlobalAVSet:
     print(i)
 # print('\tLast New Find\t\tTotal')
 # print('Round\t{0}\t\t\t{1}'.format(lastRound, rounds))
 print('Total Round:',(rounds))
-print('First_buggy_round:{0}\tTotal_buggy_rounds:{1}\tTotal_rounds:{2}'.format(first_buggy_schedule,total_buggy_schedule,rounds))
+print('First_buggy_round:{0}\t\tTotal_buggy_rounds:{1}\tTotal_rounds:{2}'.format(first_buggy_schedule,total_buggy_schedule,rounds))
 print('bugDepth:',bugDepth)
 # print('Time\t' + formateTime(lastTime - startTime), end="")
 # print('\t\t' + formateTime(time.time() - startTime))
-print('TotalTime\t\t' + formateTime(time.time() - startTime))
-print('DynamicExecTime\t\t' + formateTime(DynamicExecutionTime))
+# print('TotalTime\t\t\t\t' + formateTime(time.time() - startTime))
+# print('DynamicExecTime\t\t\t' + formateTime(DynamicExecutionTime))
 print('AtomicityViolationTime\t' + formateTime(SumTime))
 print('\t\t')
 print("\033[0m")

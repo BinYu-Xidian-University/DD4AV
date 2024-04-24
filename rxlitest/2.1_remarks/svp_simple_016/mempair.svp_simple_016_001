@@ -1,9 +1,0 @@
-svp_simple_016_001.c:14 svp_simple_016_001.c:14 W W 48616 48616
-svp_simple_016_001.c:14 svp_simple_016_001.c:15 W R 48616 45770
-svp_simple_016_001.c:14 svp_simple_016_001.c:16 W R 48616 42924
-svp_simple_016_001.c:14 svp_simple_016_001.c:17 W R 48616 40078
-svp_simple_016_001.c:14 svp_simple_016_001.c:26 W W 48616 61186
-svp_simple_016_001.c:15 svp_simple_016_001.c:26 R W 45770 61186
-svp_simple_016_001.c:16 svp_simple_016_001.c:26 R W 42924 61186
-svp_simple_016_001.c:17 svp_simple_016_001.c:26 R W 40078 61186
-svp_simple_016_001.c:26 svp_simple_016_001.c:26 W W 61186 61186

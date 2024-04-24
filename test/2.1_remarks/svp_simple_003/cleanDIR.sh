@@ -18,6 +18,7 @@ rm -rf ./svp_simple_003_001
 rm -rf ./*.ll
 rm -rf ./dbds.*
 rm -rf ./*.o
+rm -rf ./*.o.tmp
 rm -rf ./*.npy
 rm -rf ./*.npz
 rm -rf ./static_analysis.*

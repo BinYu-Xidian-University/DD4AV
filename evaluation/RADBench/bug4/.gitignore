@@ -1,9 +1,0 @@
-src/nspr-4.6.4
-src/js
-src/*.tar.gz
-*.o.bc
-*.o
-.threads.o
-.threads.o.bc
-bin/
-out_*
