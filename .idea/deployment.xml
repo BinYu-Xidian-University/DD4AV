@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="root@192.168.232.129:22 password" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="period">
         <serverdata>
           <mappings>
-            <mapping deploy="/workdir/PERIOD" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/workdir/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="root@192.168.232.129:22 password">
+      <paths name="period_docker">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/rxli/DD4AV" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@10.170.60.144:2202 password">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@10.170.60.144:2202 password (2)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/rxli/DD4AV/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
